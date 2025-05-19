@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Hide Shorts and Reels",
+  "version": "1.3",
+  "description": "Hide Shorts and Reels from YouTube feed.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "*://*.youtube.ca/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youtube.com/*",
+        "*://*.youtube.ca/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
